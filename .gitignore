@@ -1,3 +1,6 @@
+# Folders
+*.metadata
+
 # Compiled class file
 *.class
 

@@ -2,6 +2,7 @@ package entities;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import entities.enums.OrderStatus;
 
@@ -54,5 +55,32 @@ public class Order {
 			total += order.subTotal();
 		}
 		return total;
+	}
+	
+	public String getValidStatus(Scanner scan) {
+		
+		boolean valid = false;
+		 String input;
+		
+		 do {
+			System.out.println("\nPossible states:\n "
+							+ "PENDING_PAYMENT, "
+							+ "PROCESSING, "
+							+ "SHIPPED, "
+							+ "DELIVERED");
+			System.out.print("Status: ");
+
+			input = scan.next();
+			
+			for (OrderStatus status : OrderStatus.values()) {
+				
+				if (status.name().equals(input)) {
+					valid = true;
+					break;
+				}
+			}
+	
+		} while (!valid);
+		return input;
 	}
 }

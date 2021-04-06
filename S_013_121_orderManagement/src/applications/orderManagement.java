@@ -33,7 +33,7 @@ public class orderManagement {
 
 		System.out.println("\nEnter order data: ");
 		System.out.print("Order status: ");
-		String status = getValidStatus(scan);
+		String status = order.getValidStatus(scan);
 		System.out.print("\nHow many items to this order ? ");
 		int itemNumber = getValidInt(scan);
 
@@ -85,32 +85,5 @@ public class orderManagement {
 			value = scan.nextDouble();
 		} while (value < 0);
 		return value;
-	}
-	
-	public static String getValidStatus(Scanner scan) {
-		
-		boolean valid = false;
-		 String input;
-		
-		 do {
-			System.out.println("\nPossible states:\n "
-							+ "PENDING_PAYMENT, "
-							+ "PROCESSING, "
-							+ "SHIPPED, "
-							+ "DELIVERED");
-			System.out.print("Status: ");
-
-			input = scan.next();
-			
-			for (OrderStatus status : OrderStatus.values()) {
-				
-				if (status.name().equals(input)) {
-					valid = true;
-					break;
-				}
-			}
-	
-		} while (!valid);
-		return input;
 	}
 }

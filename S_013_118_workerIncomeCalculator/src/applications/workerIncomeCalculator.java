@@ -19,18 +19,20 @@ public class workerIncomeCalculator {
 						 + "\nCalculates a worker's income based on the \n"
 						 + "total value of contracts in that month.\n\n");
 		
+		Worker worker = new Worker();
+		
 		System.out.print("Enter department's name: ");
 		String department = scan.nextLine();
 		System.out.println("\nPlease provide worker data:");
 		System.out.print("\nName: ");
 		String name = scan.nextLine();
 		
-		String level = getValidLevel(scan);
+		String level = worker.getValidLevel(scan);
 			
 		System.out.print("\nBase salary: ");
 		Double baseSalary = getValidDouble(scan);
 				
-		Worker worker = new Worker(new Department(department), name, WorkerLevel.valueOf(level), baseSalary);
+		worker = new Worker(new Department(department), name, WorkerLevel.valueOf(level), baseSalary);
 		
 		System.out.print("\nHow many contracts to this worker ? ");
 		int contractNumber = getValidInt(scan);
@@ -64,28 +66,6 @@ public class workerIncomeCalculator {
 		System.out.print("\nIncome for " + mm_yyyy + ": " + worker.income(year, month));
 
 		scan.close();
-	}
-	
-	public static String getValidLevel(Scanner scan) {
-		
-		boolean valid = false;
-		 String level;
-		
-		 do {
-			System.out.print("\nLevel: JUNIOR , MID_LEVEL or SENIOR ? ");
-			
-			level = scan.next();
-			
-			for (WorkerLevel wl : WorkerLevel.values()) {
-				
-				if (wl.name().equals(level)) {
-					valid = true;
-					break;
-				}
-			}
-	
-		} while (!valid);
-		return level;
 	}
 	
 	public static Double getValidDouble(Scanner scan) {

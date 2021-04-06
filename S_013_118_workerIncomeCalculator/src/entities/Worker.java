@@ -3,6 +3,8 @@ package entities;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Scanner;
+
 import entities.enums.WorkerLevel;
 
 public class Worker {
@@ -12,6 +14,10 @@ public class Worker {
 	private WorkerLevel 		level;
 	private Double 				baseSalary;
 	private List<HourContract> 	contracts = new ArrayList<>();
+	
+	public Worker() {
+		
+	}
 	
 	public Worker(Department department, String name, WorkerLevel level, Double baseSalary) {
 		this.department = department;
@@ -63,6 +69,28 @@ public class Worker {
 			if ((contractYear == year)&&(contractMonth == month)) income += contract.totalReturn(); 
 		}
 		return income;
+	}
+	
+	public String getValidLevel(Scanner scan) {
+		
+		boolean valid = false;
+		 String level;
+		
+		 do {
+			System.out.print("\nLevel: JUNIOR , MID_LEVEL or SENIOR ? ");
+			
+			level = scan.next();
+			
+			for (WorkerLevel wl : WorkerLevel.values()) {
+				
+				if (wl.name().equals(level)) {
+					valid = true;
+					break;
+				}
+			}
+	
+		} while (!valid);
+		return level;
 	}
 }
 

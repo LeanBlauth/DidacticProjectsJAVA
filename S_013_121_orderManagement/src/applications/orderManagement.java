@@ -43,7 +43,7 @@ public class orderManagement {
 			System.out.println("\nEnter item # " + (i+1) + " data: ");
 			System.out.print("Product name: ");
 			String productName = scan.nextLine();
-			System.out.print("Product price: ");
+			System.out.print("Product price [$]: ");
 			double price = getValidDouble(scan);
 			System.out.print("Quantity: ");
 			int quantity = getValidInt(scan);
@@ -53,7 +53,7 @@ public class orderManagement {
 			order.addItem(orderItem);
 		}
 		
-		System.out.println("\n----------------------------------------------------------------------");
+		System.out.println("\n--------------------------------------------------------------------");
 		System.out.println("\nORDER SUMMARY:");
 		System.out.print("Order moment: " + order.getMoment() 
 						+"\nOrder status: " + order.getStatus()

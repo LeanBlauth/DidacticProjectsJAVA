@@ -35,7 +35,8 @@ public class Order {
 	}
 
 	public List<OrderItem> getOrderList() {
-		return orderList;
+		List<OrderItem> orderListCopy = orderList;
+		return orderListCopy;
 	}
 
 	

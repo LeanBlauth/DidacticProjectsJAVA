@@ -23,4 +23,9 @@ public class OutsourcedEmployee extends Employee {
 	public double payment() {
 		return valuePerHour*hours + bonusRate*additionalCharge;
 	}
+	
+	@Override
+	public String toString() {
+		return name + " - $" + payment();
+	}
 }

@@ -14,8 +14,6 @@ public class PaymentCalculator {
 		Scanner scan = new Scanner(System.in);
 
 		List<Employee> employeeList = new ArrayList<>();
-		
-		Employee emp;
 
 		System.out.println("-------- Payment Calculator --------\n");
 		System.out.print("Enter the number of employees: ");
@@ -36,11 +34,9 @@ public class PaymentCalculator {
 						         + "\n      110% of given additional value. ");
 				System.out.print("Additional charge: ");
 				double addCharge = getValidDouble(scan);
-				OutsourcedEmployee outEmp = new OutsourcedEmployee(name, hours, valuePerHour, addCharge);
-				employeeList.add(outEmp);
+				employeeList.add(new OutsourcedEmployee(name, hours, valuePerHour, addCharge));
 			} else {
-				emp = new Employee(name, hours, valuePerHour);
-				employeeList.add(emp);
+				employeeList.add(new Employee(name, hours, valuePerHour));
 			}
 		}
 		  System.out.println("\nPAYMENTS: ");

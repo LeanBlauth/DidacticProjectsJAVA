@@ -79,5 +79,4 @@ public class PaymentCalculator {
 		} while ((answer != 'y') && (answer != 'n'));
 		return answer;
 	}
-
 }

@@ -16,7 +16,6 @@ public class ChessGame {
 		
 		
 		
-		
 		scan.close();
 	}
 

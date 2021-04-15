@@ -2,6 +2,7 @@ package applications;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;
 
 import entities.Client;
@@ -14,6 +15,7 @@ public class orderManagement {
 
 	public static void main(String[] args) throws ParseException {
 
+		Locale.setDefault(Locale.US);
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		
 		Scanner scan  = new Scanner(System.in);

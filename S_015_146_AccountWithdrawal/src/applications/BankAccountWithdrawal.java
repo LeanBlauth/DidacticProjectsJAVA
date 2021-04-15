@@ -1,9 +1,9 @@
 package applications;
 
-import java.text.ParseException;
 import java.util.Scanner;
 
 import entities.Account;
+import model.exceptions.DomainException;
 
 public class BankAccountWithdrawal {
 
@@ -33,8 +33,11 @@ public class BankAccountWithdrawal {
 			System.out.println("\nNew balance: " + String.format("%.2f", account.getBalance()));
 			scan.close();
 		}		
-		catch () {
-
+		catch (DomainException e) {
+			System.out.println("\nError: " + e.getMessage());
+		}
+		catch (RuntimeException e) {
+			System.out.println("\nUnexpected error.");
 		}
 	}
 

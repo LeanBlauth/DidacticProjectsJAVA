@@ -6,10 +6,6 @@ public class Board {
 	private int columns;
 	private Piece[][] pieces;
 	
-	static final int chessBoardRows = 8;
-	static final int chessBoardColumns = 8;
-	
-	
 	public Board(int rows, int columns) {
 		this.rows = rows;
 		this.columns = columns;
@@ -36,4 +32,11 @@ public class Board {
 		this.columns = columns;
 	}
 	
+	public Piece getPositionOccupant(int row, int column) {
+		return pieces[row][column];
+	}
+	
+	public Piece getPositionOccupant(Position position) {
+		return pieces[position.getRow()][position.getColumn()]; 
+	}
 }

@@ -3,7 +3,7 @@ package applications;
 import java.util.Locale;
 import java.util.Scanner;
 
-import gameboard.Board;
+import chess.ChessMatch;
 
 public class ChessGame {
 
@@ -12,9 +12,9 @@ public class ChessGame {
 		Scanner scan = new Scanner(System.in);
 		
 		
-		Board board = new Board(5,5);
+		ChessMatch match = new ChessMatch(); 
 		
-		
+		UI.printBoard(match.getChessPieces());
 		
 		
 		

@@ -42,6 +42,19 @@ public class Board {
 		piece.position = position; 
 	}
 	
+	public Piece removePiece(Position position) {
+		if(!positionExists(position)) {
+			throw new BoardException("Error: position to remove piece from does not exist");
+		}
+		if (getPositionOccupant(position) == null) {
+			return null;
+		}
+		Piece removedPiece = getPositionOccupant(position);
+		removedPiece.position = null;
+		pieces[position.getRow()][position.getColumn()] = null;
+		return removedPiece;
+	}
+	
 	public boolean positionExists(int row, int column) {
 		return row >= 0 && row <= rows && column >= 0 && column <= columns;
 	}
@@ -55,6 +68,5 @@ public class Board {
 			throw new BoardException("Error: position does not exist on the current board");
 		}
 		return getPositionOccupant(position) != null;
-		
 	}
 }

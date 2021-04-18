@@ -1,6 +1,10 @@
 package applications;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import chess.ChessPiece;
+import chess.ChessPosition;
 import chess.Color;
 
 public abstract class UI { // User Interface
@@ -26,16 +30,27 @@ public abstract class UI { // User Interface
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
-	public static void printBoard(ChessPiece[][] pieces) {
+	public static ChessPosition readChessPosition(Scanner scan) {
+		try {
+			String position = scan.nextLine();
+			char column = position.charAt(0);
+			int row = Integer.parseInt(position.substring(1));
+			return new ChessPosition(column, row);
+		} catch (RuntimeException e) {
+			throw new InputMismatchException("Error reading ChessPosition");
+		}
+	}
 
-		for (int r = pieces.length; r > 0; r--) {
-			System.out.print(r + " ");
+	public static void printBoard(ChessPiece[][] pieces) {
+		System.out.println();
+		for (int r = 0; r < pieces.length; r++) {
+			System.out.print((pieces.length - r) + " ");
 			for (int c = 0 + 0; c < pieces[0].length; c++) {
-				printPiece(pieces[r - 1][c]);
+				printPiece(pieces[r][c]);
 			}
 			System.out.println();
 		}
-		System.out.println("  a b c d e f g h");
+		System.out.println("  a b c d e f g h \n");
 	}
 
 	public static void printPiece(ChessPiece piece) {

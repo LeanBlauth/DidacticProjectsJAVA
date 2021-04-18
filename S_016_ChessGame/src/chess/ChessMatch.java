@@ -37,7 +37,10 @@ public class ChessMatch {
 
 	private void validateSourcePosition(Position position) {
 		if (!board.isPositionOccupied(position)) {
-			throw new RuntimeException("Invalid move: there's no piece on source position");
+			throw new ChessException("Invalid move: there's no piece on source position");
+		}
+		if (!board.getPositionOccupant(position).isTherePossibleMove()) {
+			throw new ChessException("Invalid move: currently no possible moves for this piece");
 		}
 	}
 	

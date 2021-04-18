@@ -2,9 +2,10 @@ package chess;
 
 import gameboard.Board;
 import gameboard.Piece;
+import gameboard.Position;
 
-public class ChessPiece extends Piece {
-	
+public abstract class ChessPiece extends Piece {
+
 	private Color color;
 
 	public ChessPiece(Board board, Color color) {
@@ -15,5 +16,4 @@ public class ChessPiece extends Piece {
 	public Color getColor() {
 		return color;
 	}
-
 }

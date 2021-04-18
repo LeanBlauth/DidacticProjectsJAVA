@@ -31,7 +31,8 @@ public class ChessMatch {
 		Position source = sourcePosition.toPosition();
 		Position target = targetPosition.toPosition();
 		validateSourcePosition(source);
-		Piece capturedPiece = makeMove(source,target);
+		validateTargetPosition(source, target);
+		Piece capturedPiece = makeMove(source, target);
 		return (ChessPiece) capturedPiece;
 	}
 
@@ -40,17 +41,23 @@ public class ChessMatch {
 			throw new ChessException("Invalid move: there's no piece on source position");
 		}
 		if (!board.getPositionOccupant(position).isTherePossibleMove()) {
-			throw new ChessException("Invalid move: currently no possible moves for this piece");
+			throw new ChessException("Invalid move: currently no allowed moves for this piece");
 		}
 	}
-	
+
+	private void validateTargetPosition(Position source, Position target) {
+		if (!board.getPositionOccupant(source).possibleMoves()[target.getRow()][target.getColumn()]) {
+			throw new ChessException("Invalid move: target position not allowed");
+		}
+	}
+
 	private Piece makeMove(Position source, Position target) {
 		Piece movingPiece = board.removePiece(source);
 		Piece capturedPiece = board.removePiece(target);
 		board.placePiece(movingPiece, target);
 		return capturedPiece;
 	}
-	
+
 	private void placeNewPiece(char column, int row, ChessPiece piece) {
 		board.placePiece(piece, new ChessPosition(column, row).toPosition());
 	}

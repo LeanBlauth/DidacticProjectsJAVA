@@ -10,7 +10,6 @@ import chess.Color;
 public abstract class UI { // User Interface
 
 	// https://stackoverflow.com/questions/5762491/how-to-print-color-in-console-using-system-out-println
-
 	public static final String ANSI_RESET = "\u001B[0m";
 	public static final String ANSI_BLACK = "\u001B[30m";
 	public static final String ANSI_RED = "\u001B[31m";
@@ -60,9 +59,26 @@ public abstract class UI { // User Interface
 		System.out.println("  a b c d e f g h \n");
 	}
 
+	public static void printBoard(ChessPiece[][] pieces, boolean[][] possibleMoves) {
+		clearScreen();
+		System.out.println("\n--- Chess Game ---\n");
+		for (int r = 0; r < pieces.length; r++) {
+			System.out.print((pieces.length - r) + " ");
+			for (int c = 0 + 0; c < pieces[0].length; c++) {
+
+				if (possibleMoves[r][c]) {
+					System.out.print(ANSI_RED_BACKGROUND);
+				}
+				printPiece(pieces[r][c]);
+			}
+			System.out.println();
+		}
+		System.out.println("  a b c d e f g h \n");
+	}
+
 	private static void printPiece(ChessPiece piece) {
 		if (piece == null) {
-			System.out.print("-");
+			System.out.print("-" + ANSI_RESET);
 		} else {
 			if (piece.getColor() == Color.WHITE) {
 				System.out.print(ANSI_WHITE + piece + ANSI_RESET);

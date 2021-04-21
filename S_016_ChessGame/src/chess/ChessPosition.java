@@ -27,7 +27,7 @@ public class ChessPosition {
 		return new Position(ChessMatch.chessBoardRows - row , column - 'a');
 	}
 	
-	protected ChessPosition fromPosition(Position position) {
+	protected static ChessPosition toChessPosition(Position position) {
 		return new ChessPosition( (char) (position.getColumn() + 'a') , ChessMatch.chessBoardRows - position.getRow() );
 	}
 	

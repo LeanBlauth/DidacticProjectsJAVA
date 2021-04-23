@@ -119,13 +119,14 @@ public class ChessMatch {
 		movingPiece.decreaseMoveCount();
 		board.placePiece(movingPiece, source);
 		if (capturedPiece != null) {
+			board.placePiece(capturedPiece, target);
 			piecesOnBoard.add(capturedPiece);
 			piecesCaptured.remove(capturedPiece);
 		}
 	}
 
-	private Color getOpponent(/* Color currentPlayer */) {
-		return currentPlayer == Color.BLACK ? Color.WHITE : Color.BLACK;
+	private Color getOpponent() {
+		return (currentPlayer == Color.BLACK) ? Color.WHITE : Color.BLACK;
 	}
 
 	private ChessPiece getKingOfGivenColor(Color color) {
@@ -194,12 +195,30 @@ public class ChessMatch {
 	
 	private void initialSetup() {
 
-		placeNewPiece('h', 7, new Rook(board, Color.WHITE));
-		placeNewPiece('d', 1, new Rook(board, Color.WHITE));
-		placeNewPiece('e', 1, new King(board, Color.WHITE));
 
-		placeNewPiece('b', 8, new Rook(board, Color.BLACK));
-		placeNewPiece('a', 8, new King(board, Color.BLACK));
+		placeNewPiece('e', 1, new Rook(board, Color.WHITE));
+		placeNewPiece('e', 2, new Rook(board, Color.WHITE));
+		placeNewPiece('d', 1, new King(board, Color.WHITE));
+		
+		
+		placeNewPiece('d', 8, new King(board, Color.BLACK));
+		
+		
+		
+		
+//		placeNewPiece('c', 1, new Rook(board, Color.WHITE));
+//		placeNewPiece('c', 2, new Rook(board, Color.WHITE));
+//		placeNewPiece('d', 2, new Rook(board, Color.WHITE));
+//		placeNewPiece('e', 1, new Rook(board, Color.WHITE));
+//		placeNewPiece('e', 2, new Rook(board, Color.WHITE));
+//		placeNewPiece('d', 1, new King(board, Color.WHITE));
+//
+//		placeNewPiece('c', 8, new Rook(board, Color.BLACK));
+//		placeNewPiece('c', 7, new Rook(board, Color.BLACK));
+//		placeNewPiece('d', 7, new Rook(board, Color.BLACK));
+//		placeNewPiece('e', 8, new Rook(board, Color.BLACK));
+//		placeNewPiece('e', 7, new Rook(board, Color.BLACK));
+//		placeNewPiece('d', 8, new King(board, Color.BLACK));
 
 	}
 }

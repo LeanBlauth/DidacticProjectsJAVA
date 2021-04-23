@@ -9,6 +9,11 @@ public class Position {
 		this.row = row;
 		this.column = column;
 	}
+	
+	public Position(Position position) {
+		this.row = position.getRow();
+		this.column = position.getColumn();
+	}
 
 	public int getRow() {
 		return row;

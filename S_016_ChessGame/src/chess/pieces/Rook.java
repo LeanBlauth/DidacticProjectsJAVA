@@ -4,7 +4,6 @@ import chess.ChessPiece;
 import chess.Color;
 import gameboard.Board;
 import gameboard.Direction;
-import gameboard.Position;
 
 public class Rook extends ChessPiece {
 

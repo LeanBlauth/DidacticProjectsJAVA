@@ -4,14 +4,13 @@ import chess.ChessPiece;
 import chess.Color;
 import gameboard.Board;
 import gameboard.Direction;
-import gameboard.Position;
 
 public class King extends ChessPiece {
 
 	public King(Board board, Color color) {
 		super(board, color);
 	}
-	
+
 	@Override
 	public String toString() {
 		return "K";
@@ -33,7 +32,7 @@ public class King extends ChessPiece {
 		// Check NW
 		allowedMoves = stepValidation(allowedMoves, directionStep(Direction.NW));
 		// Check SW
-				allowedMoves = stepValidation(allowedMoves, directionStep(Direction.SW));
+		allowedMoves = stepValidation(allowedMoves, directionStep(Direction.SW));
 		// Check SE
 		allowedMoves = stepValidation(allowedMoves, directionStep(Direction.SE));
 		return allowedMoves;

@@ -3,7 +3,6 @@ package chess.pieces;
 import chess.ChessPiece;
 import chess.Color;
 import gameboard.Board;
-import gameboard.Direction;
 import gameboard.Position;
 
 public class Knight extends ChessPiece {

@@ -5,20 +5,20 @@ import chess.Color;
 import gameboard.Board;
 import gameboard.Direction;
 
-public class Rook extends ChessPiece {
+public class Queen extends ChessPiece {
 
-	public Rook(Board board, Color color) {
+	public Queen(Board board, Color color) {
 		super(board, color);
 	}
 
 	@Override
 	public String toString() {
-		return "R";
+		return "Q";
 	}
 
 	@Override
 	public boolean[][] possibleMoves() {
-
+		
 		boolean[][] allowedMoves = new boolean[getBoard().getRows()][getBoard().getColumns()];
 
 		// Check N
@@ -32,6 +32,18 @@ public class Rook extends ChessPiece {
 
 		// Check E
 		allowedMoves = directionValidation(allowedMoves, Direction.E);
+
+		// Check NW
+		allowedMoves = directionValidation(allowedMoves, Direction.NW);
+
+		// Check NE
+		allowedMoves = directionValidation(allowedMoves, Direction.NE);
+
+		// Check SW
+		allowedMoves = directionValidation(allowedMoves, Direction.SW);
+
+		// Check SE
+		allowedMoves = directionValidation(allowedMoves, Direction.SE);
 
 		return allowedMoves;
 	}

@@ -31,7 +31,7 @@ public class Board {
 	}
 	
 	public Piece getPositionOccupant(Position position) {
-		return pieces[position.getRow()][position.getColumn()]; 
+		return pieces[position.getRow()][position.getColumn()];
 	}
 	
 	public void placePiece(Piece piece, Position position) {

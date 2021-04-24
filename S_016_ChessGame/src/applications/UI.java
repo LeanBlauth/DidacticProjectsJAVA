@@ -133,4 +133,24 @@ public abstract class UI { // User Interface
 		System.out.println(ANSI_RESET);
 		
 	}
+	
+public static char getValidAnswer(char[] validSet, Scanner scan) {
+		
+		Boolean adequate = false;
+		char answer;
+		
+		do {
+			answer = (scan.next()).charAt(0);
+			scan.nextLine();
+			
+			for (char valid : validSet) {
+				if (answer == valid) {
+					adequate = true;
+					break;
+				}	
+			}
+			if (!adequate) System.out.print("\nPlease provide a valid answer: ");
+		} while (!adequate); 
+		return answer;
+	}
 }

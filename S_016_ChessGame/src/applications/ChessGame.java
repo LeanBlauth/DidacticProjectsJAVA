@@ -37,6 +37,13 @@ public class ChessGame {
 					capturedList.add(capturedPiece);
 				}
 				
+				if (match.getPromotedPiece() != null) {
+					System.out.print("\nChoose a piece type for promotion [N , R , B , Q] : ");
+					char[] validSet= {'N','R','B','Q'};
+					char type = UI.getValidAnswer(validSet, scan);
+					match.promotePiece(type);
+				}
+				
 			}
 			catch (ChessException e) {
 				System.out.println(e.getMessage());

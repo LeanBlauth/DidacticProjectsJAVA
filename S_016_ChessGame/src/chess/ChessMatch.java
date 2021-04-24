@@ -1,6 +1,5 @@
 package chess;
 
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,7 +13,7 @@ import chess.pieces.Rook;
 import gameboard.Board;
 import gameboard.Piece;
 import gameboard.Position;
-
+  
 public class ChessMatch {
 
 	static final int chessBoardRows = 8;
@@ -113,7 +112,7 @@ public class ChessMatch {
 			throw new IllegalStateException("Null reference: there is no piece to be promoted");
 		}
 		if (type != 'N' && type != 'R' && type != 'B' && type != 'Q') {
-			throw new InvalidParameterException("Invalid type for promotion");
+			return promoted;
 		}
 
 		Position promotedPosition = promoted.getChessPosition().toPosition();

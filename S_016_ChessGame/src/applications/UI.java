@@ -140,7 +140,7 @@ public static char getValidAnswer(char[] validSet, Scanner scan) {
 		char answer;
 		
 		do {
-			answer = (scan.next()).charAt(0);
+			answer = (scan.next()).toUpperCase().charAt(0);
 			scan.nextLine();
 			
 			for (char valid : validSet) {

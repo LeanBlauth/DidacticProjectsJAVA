@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 import model.entities.CarRental;
 import model.entities.Vehicle;
-import model.services.BrazilTaxServices;
+import model.services.BrazilTaxService;
 import model.services.RentalService;
 
 public class VehicleRental {
@@ -36,7 +36,7 @@ public class VehicleRental {
 		System.out.print("\nEnter price per day: ");
 		double pricePerDay = getValidDouble(scan);
 		
-		RentalService rentalService = new RentalService(pricePerDay, pricePerHour, new BrazilTaxServices());
+		RentalService rentalService = new RentalService(pricePerDay, pricePerHour, new BrazilTaxService());
 		
 		rentalService.processInvoice(rental);
 		

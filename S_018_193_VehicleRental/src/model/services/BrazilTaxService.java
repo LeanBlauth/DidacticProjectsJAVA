@@ -1,6 +1,6 @@
 package model.services;
 
-public class BrazilTaxServices {
+public class BrazilTaxService implements TaxServices {
 	
 	private static final double threshold = 100.0;
 	private static final double taxRateUnderThreshold = 0.2;

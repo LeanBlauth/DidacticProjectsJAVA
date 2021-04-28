@@ -15,7 +15,7 @@ public class GenerateOrderSummary {
 	public static void main(String[] args) {
 		
 		List<OrderItem> orderList = new ArrayList<>();
-		String path = "C:\\Users\\HP\\Workspace\\ws_eclipse\\S_017_189_ReadWriteFile\\SourceFile.csv";
+		String path = "SourceFile.csv";
 		
 		try(BufferedReader bRead = new BufferedReader(new FileReader(path))) {
 			

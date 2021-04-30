@@ -1,3 +1,5 @@
 ## Motif
 
-This project exercises the concepts of hashCode, equals and maps
+This project exercises the concept of maps
+
+In case you run the program use this as file path: VoteLog.csv

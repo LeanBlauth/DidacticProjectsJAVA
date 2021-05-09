@@ -1,6 +1,8 @@
 package model.entities;
 
 import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Department implements Serializable {
 
@@ -15,6 +17,11 @@ public class Department implements Serializable {
 	public Department(Integer id, String name) {
 		this.id = id;
 		this.name = name;
+	}
+	
+	public Department(ResultSet rs) throws SQLException {
+		this.id = rs.getInt("DepartmentId");
+		this.name = rs.getString("DepName");
 	}
 
 	public Integer getId() {
@@ -32,7 +39,7 @@ public class Department implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

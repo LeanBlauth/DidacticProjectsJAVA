@@ -1,6 +1,8 @@
 package model.entities;
 
 import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 
 public class Seller implements Serializable {
@@ -25,7 +27,16 @@ public class Seller implements Serializable {
 		this.baseSalary = baseSalary;
 		this.department = department;
 	}
-
+	
+	public Seller(ResultSet rs, Department dep) throws SQLException {
+		this.id = rs.getInt("Id");
+		this.name = rs.getString("Name"); 
+		this.email = rs.getString("Email"); 
+		this.birthDate = rs.getDate("BirthDate"); 
+		this.baseSalary = rs.getDouble("BaseSalary"); 
+		this.department = dep;
+	}
+	
 	public Integer getId() {
 		return id;
 	}

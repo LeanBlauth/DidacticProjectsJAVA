@@ -40,5 +40,9 @@ public class Program {
 		sellerDAO.update(new Seller(9, "Rudolph", "rudy@gmail.com", new Date(), 3500.0,
 				new Department(3, null)));
 		System.out.println("Update completed");
+		
+		System.out.println("\n==== TEST 6 - seller method: delete ==============");
+		sellerDAO.deleteById(12);
+		System.out.println("Seller deleted");
 	}
 }

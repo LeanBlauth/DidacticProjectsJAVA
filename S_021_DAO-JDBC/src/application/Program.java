@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import model.dao.DAOFactory;
+import model.dao.DepartmentDAO;
 import model.dao.SellerDAO;
 import model.entities.Department;
 import model.entities.Seller;
@@ -13,6 +14,7 @@ public class Program {
 	public static void main(String[] args) {
 
 		SellerDAO sellerDAO = DAOFactory.createSellerDAO();
+		DepartmentDAO depDAO = DAOFactory.createDepartmentDAO();
 
 		System.out.println("==== TEST 1 - seller method: findById ============");
 		Seller seller1 = sellerDAO.findById(3);
@@ -44,5 +46,12 @@ public class Program {
 		System.out.println("\n==== TEST 6 - seller method: delete ==============");
 		sellerDAO.deleteById(12);
 		System.out.println("Seller deleted");
+
+		System.out.println("\n==== TEST 7 - department method: findById ========");
+		Department dep1 = depDAO.findById(2);
+		System.out.println(dep1);
+		
+		
+		
 	}
 }

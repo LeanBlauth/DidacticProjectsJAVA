@@ -51,6 +51,9 @@ public class Program {
 		Department dep1 = depDAO.findById(2);
 		System.out.println(dep1);
 		
+		System.out.println("\n==== TEST 8 - department method: insert ==========");
+		depDAO.insert(new Department(7,"Magic Hats"));
+		System.out.println("Department inserted !");
 		
 		
 	}

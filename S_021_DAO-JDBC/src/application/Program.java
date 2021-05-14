@@ -35,7 +35,7 @@ public class Program {
 		System.out.println("\n==== TEST 4 - seller method: insert ==============");
 		Seller seller2 = new Seller(null, "Lorald McDolans", "lorald@mcdolans.com", new Date(), 3000.0,
 				new Department(2, null));
-		sellerDAO.insert(seller2);
+//		sellerDAO.insert(seller2);
 		System.out.println("Seller inserted ! New ID = " + seller2.getId());
 
 		System.out.println("\n==== TEST 5 - seller method: update ==============");
@@ -52,9 +52,12 @@ public class Program {
 		System.out.println(dep1);
 		
 		System.out.println("\n==== TEST 8 - department method: insert ==========");
-		depDAO.insert(new Department(7,"Magic Hats"));
+//		depDAO.insert(new Department(null,"Magic Hats"));
 		System.out.println("Department inserted !");
 		
+		System.out.println("\n==== TEST 9 - department method: update ==========");
+		depDAO.update(new Department(4, "Computers"));
+		System.out.println("Department updated !");
 		
 	}
 }

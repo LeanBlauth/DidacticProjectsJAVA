@@ -59,5 +59,9 @@ public class Program {
 		depDAO.update(new Department(4, "Computers"));
 		System.out.println("Department updated !");
 		
+		System.out.println("\n==== TEST 10 - department method: delete =========");
+		depDAO.deleteById(12);
+		System.out.println("Department deleted !");
+		
 	}
 }

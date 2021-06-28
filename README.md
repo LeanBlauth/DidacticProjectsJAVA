@@ -8,4 +8,4 @@ Projects developed in order to learn the language basics and exercise coding. In
 - Repo - [SpringBoot-JPA-WebService](https://github.com/LeanBlauth/SpringBoot-JPA-WebService.git)
 - Repo - [SpringBoot-MongoDB-WebService](https://github.com/LeanBlauth/SpringBoot-MongoDB-WebService.git)
 
-![](images/certificate.jpg)
+![](images/certificate.png)
